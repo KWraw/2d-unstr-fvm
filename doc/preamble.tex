@@ -1,0 +1,130 @@
+\documentclass[paper=a4, fontsize=11pt]{ctexart}
+% \setCJKmainfont[BoldFont={SimHei},ItalicFont={KaiTi}]{SimSun}
+\usepackage{latexsym,bm}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{indentfirst}
+\usepackage{subfigure}
+% \usepackage{subcaption}
+\usepackage[utf8]{inputenc}
+% \usepackage{notoccite}
+% \bibliographystyle{unsrtnat}
+% \usepackage[numbers,sort&compress]{natbib}
+
+\setlength{\parindent}{2em}
+\setlength{\baselineskip}{1.8em}
+\setlength{\parskip}{1ex}
+
+\usepackage[english]{babel} % English language/hyphenation
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage{listings} % Required for inserting code snippets
+\usepackage{fancyhdr} % Custom headers and footers
+\usepackage{fancyvrb}
+\usepackage{graphicx} % Include graphs
+\usepackage{epsfig}
+\pagestyle{fancyplain} % Makes all pages in the document conform to the custom headers and footers
+\fancyhead{} % No page header - if you want one, create it in the same way as the footers below
+\fancyfoot[L]{} % Empty left footer
+\fancyfoot[C]{} % Empty center footer
+\fancyfoot[R]{\thepage} % Page numbering for right footer
+\renewcommand{\headrulewidth}{0pt} % Remove header underlines
+\renewcommand{\footrulewidth}{0pt} % Remove footer underlines
+\setlength{\headheight}{13.6pt} % Customize the height of the header
+
+\numberwithin{equation}{section} % Number equations within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{figure}{section} % Number figures within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+\numberwithin{table}{section} % Number tables within sections (i.e. 1.1, 1.2, 2.1, 2.2 instead of 1, 2, 3, 4)
+
+%-------------------------------------------------------------------------------
+%---------DEFINE THE PROPERTIES OF LISTINGS---------
+%-------------------------------------------------------------------------------
+
+\definecolor{DarkGreen}{rgb}{0.0,0.4,0.0} % Comment color
+\definecolor{highlight}{RGB}{255,251,204} % Code highlight color
+
+\lstdefinestyle{CPP}%
+{%
+  basicstyle          = \scriptsize\ttfamily,
+  language            = C++,
+  numbers             = left,
+  numberstyle         = \tiny,
+  % stepnumber          = 1,
+  numbersep           = 5pt,
+  backgroundcolor     = \color{gray},
+  showspaces          = false,
+  % showspaces          = true,
+  showstringspaces    = false,
+  showtabs            = false,
+  % showtabs            = true,
+  frame               = single,
+  tabsize             = 2,
+  captionpos          = b,
+  breaklines          = true,
+  breakatwhitespace   = false,
+  morestring          = [b]",
+  stringstyle         = \color{blue},
+  keywordstyle        = \color{black},
+  commentstyle        = \color{green!20},
+  % identifierstyle     = \color{blue},
+  moredelim           = **[is][\bfseries]{`}{`},
+  fancyvrb            = true,
+  breaklines=true,
+}
+
+\lstdefinestyle{Style1}{ % Define a style for your code snippet, multiple definitions can be made if, for example, you wish to insert multiple code snippets using different programming languages into one document
+language=[95]Fortran, % Detects keywords, comments, strings, functions, etc for the language specified
+backgroundcolor=\color{highlight}, % Set the background color for the snippet - useful for highlighting
+basicstyle=\footnotesize\ttfamily, % The default font size and style of the code
+breakatwhitespace=false, % If true, only allows line breaks at white space
+breaklines=true, % Automatic line breaking (prevents code from protruding outside the box)
+captionpos=b, % Sets the caption position: b for bottom; t for top
+commentstyle=\usefont{T1}{pcr}{m}{sl}\color{DarkGreen}, % Style of comments within the code - dark green courier font
+deletekeywords={}, % If you want to delete any keywords from the current language separate them by commas
+%escapeinside={\%}, % This allows you to escape to LaTeX using the character in the bracket
+firstnumber=1, % Line numbers begin at line 1
+frame=single, % Frame around the code box, value can be: none, leftline, topline, bottomline, lines, single, shadowbox
+frameround=tttt, % Rounds the corners of the frame for the top left, top right, bottom left and bottom right positions
+keywordstyle=\color{Blue}\bf, % Functions are bold and blue
+morekeywords={}, % Add any functions no included by default here separated by commas
+numbers=left, % Location of line numbers, can take the values of: none, left, right
+numbersep=10pt, % Distance of line numbers from the code box
+numberstyle=\tiny\color{Gray}, % Style used for line numbers
+rulecolor=\color{black}, % Frame border color
+showstringspaces=false, % Don't put marks in string spaces
+showtabs=false, % Display tabs in the code as lines
+stepnumber=5, % The step distance between line numbers, i.e. how often will lines be numbered
+stringstyle=\color{Purple}, % Strings are purple
+tabsize=2, % Number of spaces per tab in the code
+}
+
+% Create a command to cleanly insert a snippet with the style above anywhere in the document
+% insertcode_fortran
+% insertcode_sh
+% insertcode_emacs
+\newcommand{\insertcode}[2]{\begin{itemize}\item[]\lstinputlisting[caption=#2,label=#1,style=Style1]{#1}\end{itemize}} % The first argument is the script location/filename and the second is a caption for the listing
+
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} % Create horizontal rule command with 1 argument of height
+
+% For spectial character input
+\newcommand{\BS}{\char`\\}
+
+\usepackage[]{listings}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{ccaption}
+% \renewcommand{\figurename}{Fig.}
+\usepackage{caption}
+% \captionsetup[wrapfigure]{name=Fig.}
+\usepackage[]{hyperref}
+\hypersetup{pdfborder=0 0 0}
+\hypersetup{urlcolor=blue}
+% color 在之前某个包中已经引用过了
+
+% configuration of hyperlinks
+\hypersetup{backref,
+  % pdfpagemode=FullScreen,
+  colorlinks=true,
+  allcolors=blue
+}
